@@ -25,26 +25,26 @@ To use the web scraping tool, follow these steps:
 
 3. Run the executable with the following command:
    ```
-   ./www2txt [URL] -tag [HTML tag 1] -tag [HTML tag 2] ...
+   ./www2txt -url [URL] -tag [HTML tag 1] -tag [HTML tag 2] ...
    ```
 
    Replace `[URL]` with the target website URL you want to scrape. Specify one or more HTML tags to extract content from by using the `-tag` flag followed by the HTML tag. For example:
    ```
-   ./www2txt https://example.com -tag h1 -tag p
+   ./www2txt -url https://example.com -tag h1 -tag p
    ```
 
    The tool will visit the specified URL and extract the text content from the provided HTML tags.
 
 4. The extracted text will be saved in a file named `[hostname].txt`, where `[hostname]` is the hostname of the target website.
 
-   For example, if the target URL is "https://example.com", the extracted text will be saved in a file named "example.txt".
+   For example, if the target URL is "https://example.com", the extracted text will be saved in a file named "example.com.txt".
 
 ## Example
 
 Here's an example usage of the web scraping tool:
 
 ```
-./www2txt https://example.com -tag h1 -tag p
+./www2txt -url https://example.com -tag h1 -tag p
 ```
 
 This command will visit "https://example.com" and extract the text content from all `<h1>` and `<p>` tags. The extracted text will be saved in a file named "example.txt".

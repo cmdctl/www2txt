@@ -21,10 +21,12 @@ func (i *ArrayFlags) Set(value string) error {
 }
 
 var tags ArrayFlags
+var target string
 
 func main() {
 
 	flag.Var(&tags, "tag", "html tags to extract")
+  flag.StringVar(&target, "url", "", "target url")
 	flag.Parse()
 
   fmt.Println(tags)
@@ -33,10 +35,9 @@ func main() {
     return
   }
 
-	www := os.Args[1]
-	fmt.Println("Visiting", www)
+	fmt.Println("Visiting", target)
 
-	parsed_url, err := url.Parse(www)
+	parsed_url, err := url.Parse(target)
 	fmt.Println(parsed_url.Host)
 	if err != nil {
 		panic(err)
@@ -67,5 +68,5 @@ func main() {
 		fmt.Println("Visiting", r.URL)
 	})
 
-	c.Visit(www)
+	c.Visit(target)
 }
